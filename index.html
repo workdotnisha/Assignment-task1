@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swappable Draggable Images with Text Customization</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container-image">
+        <div class="image-container">
+            <!-- Wrapper for slides -->
+            <div class="wrapper swiper" role="listbox" id="canvas">
+              <div class="wrapper-inner swiper-wrapper">
+                <div class="slide swiper-slide">
+                  <img src="image1.jpg" alt="Chania" width="460" height="345" />
+                  <div class="carousel-caption">
+                    <h3>Chania</h3>
+                    <p>
+                      The atmosphere in Chania has a touch of Florence and
+                      Venice.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="slide swiper-slide">
+                  <img src="image2.jpg" alt="Chania" width="460" height="345" />
+                  <div class="carousel-caption">
+                    <h3>Chania</h3>
+                    <p>
+                      The atmosphere in Chania has a touch of Florence and
+                      Venice.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="slide swiper-slide">
+                  <img src="image3.jpg" alt="Flower" width="460" height="345" />
+                  <div class="carousel-caption">
+                    <h3>Flowers</h3>
+                    <p>Beautiful flowers in Kolymbari, Crete.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+
+        </div>
+      </div>
+      
+
+      <div class="container-properties">
+        <!-- Text Controls -->
+        <!-- <h3>Text Properties</h3>
+        <div class="textarea">
+          <div class="option">
+            <label for="language">Language</label>
+            <select name="language" id="language">
+              <option value="english">English</option>
+              <option value="hindi">Hindi</option>
+              <option value="gujarati">Gujarati</option>
+            </select>
+          </div>
+
+          <textarea
+            name="blessings"
+            id="blessings"
+            placeholder="Enter Your Blessings"
+          ></textarea> -->
+        </div>
+
+        <div class="font-property controls">
+          <!-- <label for="font-family">Font Family</label>
+          <select id="font-family">
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Tahoma">Tahoma</option>
+          </select> -->
+          <div class="toolbar-partOne">
+            <input type="text" id="text-input" placeholder="Enter text" />
+            <select id="font-select">
+              <option value="Arial">Arial</option>
+              <option value="Verdana">Verdana</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Courier New">Courier New</option>
+            </select>
+            <input type="color" id="color-picker" />
+            <button id="add-text-btn">Add Text</button>
+          </div>
+        </div>
+
+        <div class="font-decoration">
+          <label for="font-size">Font Size</label>
+          <input type="number" id="font-size" placeholder="Font Size" />
+
+          <label for="font-color">Font Color</label>
+          <input type="color" id="font-color" />
+
+          <label for="font-alignment">Alignment</label>
+          <select id="font-alignment">
+            <option value="left">Left</option>
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+          </select>
+
+          <label for="line-height">Line Height</label>
+          <input type="number" id="line-height" placeholder="Line Height" />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Swiper with Editable Text</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
+    .swiper { width: 60%; height: 100vh; }
+    .swiper-slide { display: flex; justify-content: center; align-items: center; position: relative; background: #f0f0f0; }
+    .text { 
+      position: absolute; 
+      font-size: 24px; 
+      font-family: Arial, sans-serif; 
+      color: #333; 
+      text-align: center; 
+      user-select: none; 
+    }
+    .text.selected { outline: 2px dashed blue; }
+    .controls {
+      position: fixed; 
+      top: 10px; 
+      left: 10px; 
+      background: white; 
+      padding: 15px; 
+      border: 1px solid #ccc; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .controls label { display: block; margin: 5px 0; }
+    .controls button { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button id="addText">Add Text</button>
+    <button id="deleteText">Delete Selected Text</button>
+    <label>Font Size: <input type="number" id="fontSize" min="10" max="100" step="2"></label>
+    <label>Font Family: 
+      <select id="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+    </label>
+    <label>Font Color: <input type="color" id="fontColor"></label>
+    <label>Alignment:
+      <button data-align="left">Left</button>
+      <button data-align="center">Center</button>
+      <button data-align="right">Right</button>
+    </label>
+  </div>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" data-slide="1"></div>
+      <div class="swiper-slide" data-slide="2"></div>
+      <div class="swiper-slide" data-slide="3"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    const addTextBtn = document.getElementById('addText');
+    const deleteTextBtn = document.getElementById('deleteText');
+    const fontSizeInput = document.getElementById('fontSize');
+    const fontFamilyInput = document.getElementById('fontFamily');
+    const fontColorInput = document.getElementById('fontColor');
+    const alignmentButtons = document.querySelectorAll('[data-align]');
+
+    let selectedText = null;
+
+    // Add text to the active slide
+    addTextBtn.addEventListener('click', () => {
+      const activeSlide = document.querySelector('.swiper-slide-active');
+      const newText = document.createElement('div');
+      newText.className = 'text';
+      newText.textContent = 'New Text';
+      activeSlide.appendChild(newText);
+      selectText(newText);
+    });
+
+    // Delete selected text
+    deleteTextBtn.addEventListener('click', () => {
+      if (selectedText) {
+        selectedText.remove();
+        selectedText = null;
+      }
+    });
+
+    // Select text
+    function selectText(element) {
+      if (selectedText) selectedText.classList.remove('selected');
+      selectedText = element;
+      selectedText.classList.add('selected');
+      syncControls();
+    }
+
+    // Sync controls with selected text
+    function syncControls() {
+      if (selectedText) {
+        fontSizeInput.value = parseInt(selectedText.style.fontSize) || 24;
+        fontFamilyInput.value = selectedText.style.fontFamily || 'Arial';
+        fontColorInput.value = selectedText.style.color || '#333';
+      }
+    }
+
+    // Update text properties
+    fontSizeInput.addEventListener('input', () => {
+      if (selectedText) selectedText.style.fontSize = `${fontSizeInput.value}px`;
+    });
+    fontFamilyInput.addEventListener('change', () => {
+      if (selectedText) selectedText.style.fontFamily = fontFamilyInput.value;
+    });
+    fontColorInput.addEventListener('input', () => {
+      if (selectedText) selectedText.style.color = fontColorInput.value;
+    });
+    alignmentButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (selectedText) {
+          selectedText.style.textAlign = button.getAttribute('data-align');
+          selectedText.style.width = "100%";
+        }
+      });
+    });
+
+    // Click to select text
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('text')) {
+        selectText(e.target);
+      } else {
+        if (selectedText) selectedText.classList.remove('selected');
+        selectedText = null;
+      }
+    });
+  </script>
+</body>
+</html>

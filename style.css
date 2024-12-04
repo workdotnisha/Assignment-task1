@@ -1,0 +1,293 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 6rem 10rem;
+    gap: 20px;
+    padding: 2rem;
+}
+/*
+.container-image {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.image-container .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.container-properties {
+    flex: 1 1 40%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-properties h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.textarea, .font-property, .font-decoration {
+    margin-bottom: 20px;
+}
+
+.textarea textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.font-property, .font-decoration {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  } */
+
+  /* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .container-image {
+    flex: 1;
+  }
+  
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+  
+  .carousel {
+    position: relative;
+  }
+  
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item {
+    min-width: 100%;
+    text-align: center;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    display: block;
+  }
+  
+  .caption {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+  }
+  
+  .control.prev {
+    left: 10px;
+  }
+  
+  .control.next {
+    right: 10px;
+  }
+  
+  .container-properties {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  textarea,
+  select,
+  input[type="number"],
+  input[type="color"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+   */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+}
+.wrapper-inner{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.slide{
+    width: 100%;
+    height: 100vh;
+}
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slide .carousel-caption{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.slide .carousel-caption h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.swiper {
+  width: 300px;
+  height: 500px;
+}
+.wrapper .swiper-pagination-bullet{
+  height: 10px;
+  width: 10px;
+  background: #fff;
+  opacity: 0.5s;
+  transition: 0.3s;
+}
+.wrapper .swiper-pagination-bullet-active{
+  background: #fff;
+  opacity: 1;
+  border-radius: 7px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.image-container {
+  margin-bottom: 20px;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.container-properties h3 {
+  margin-bottom: 10px;
+}
+
+.textarea, .font-property, .font-decoration {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
